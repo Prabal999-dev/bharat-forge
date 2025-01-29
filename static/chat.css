@@ -1,0 +1,144 @@
+/* static/chat.css */
+.chat-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    height: calc(100vh - 100px);
+}
+
+.chat-sidebar {
+    background-color: var(--card-bg);
+    border: 3px solid var(--neon-yellow);
+    padding: 1.5rem;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.chat-sidebar h2 {
+    color: var(--neon-yellow);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    transform: rotate(-2deg);
+    border-bottom: 3px solid var(--neon-yellow);
+    padding-bottom: 0.5rem;
+}
+
+.suggestion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.suggestion-btn {
+    background-color: var(--dark-bg);
+    border: 2px solid var(--neon-yellow);
+    color: var(--neon-yellow);
+    padding: 1rem;
+    text-align: left;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.suggestion-btn:hover {
+    transform: translateX(5px);
+    background-color: var(--neon-yellow);
+    color: black;
+}
+
+.chat-main {
+    background-color: var(--card-bg);
+    border: 3px solid var(--neon-yellow);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 6px 6px 0px #000;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 1rem;
+}
+
+.message.user {
+    align-self: flex-end;
+}
+
+.message.assistant {
+    align-self: flex-start;
+}
+
+.message-content {
+    padding: 1rem;
+    border: 2px solid var(--neon-yellow);
+    border-radius: 4px;
+}
+
+.message.user .message-content {
+    background-color: var(--neon-yellow);
+    color: black;
+    transform: rotate(1deg);
+}
+
+.message.assistant .message-content {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    transform: rotate(-1deg);
+}
+
+.message.error .message-content {
+    background-color: #ff4444;
+    color: white;
+}
+
+.chat-input-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--dark-bg);
+    border-top: 3px solid var(--neon-yellow);
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--neon-yellow);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+#send-btn {
+    background-color: var(--neon-yellow);
+    border: 3px solid black;
+    color: black;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transform: rotate(2deg);
+    transition: transform 0.2s ease;
+}
+
+#send-btn:hover {
+    transform: rotate(-2deg);
+    box-shadow: 4px 4px 0px #000;
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-sidebar {
+        display: none;
+    }
+}
