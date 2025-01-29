@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Forge - Home</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</head>
+<body class="neo-brutal">
+    <header class="header">
+        <div class="logo">
+            <span>Bharat Forge</span>
+        </div>
+        
+        <div class="nav-links">
+            
+            <a href="/suppliers" class="neo-btn">Supplier</a>
+            <a href="#" class="neo-btn">Customer</a>
+            <a href="/chat" class="neo-btn chat-btn">
+                <span class="chat-icon">💬</span> Chat Assistant
+            </a>
+            <a href="#" class="neo-btn">Profile</a>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <a href="/trends" class="neo-category">TRENDS</a>
+        <a href="/product" class="neo-category">PRODUCTS</a>
+        <a href="/raw" class="neo-category">RAW MATERIAL</a>
+        <a href="#" class="neo-category">LOGIN</a>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Empowering Business Growth</h1>
+                <p class="hero-subtitle">Connect with top suppliers and streamline your supply chain</p>
+                <button class="neo-btn-large">Get Started</button>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Production Data</h3>
+                <div class="stat-numbers">
+                    <p>Total Units: <span>10,000</span></p>
+                    <p>Defective Units: <span>500</span></p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Sales Data</h3>
+                <div class="stat-numbers">
+                    <p>Total Sales: <span>$1,000,000</span></p>
+                    <p>Returns: <span>$50,000</span></p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Inventory Data</h3>
+                <div class="stat-numbers">
+                    <p>Total Items: <span>20,000</span></p>
+                    <p>Out of Stock: <span>200</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="chart-section">
+            <div class="neo-card">
+                <h2>Production Chart</h2>
+                <canvas id="myChart"></canvas>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="neo-card">
+                <h2>Location Map</h2>
+                <div id="map"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-panel">
+        <p class="footer-text">Bharat Forge</p>
+        <p class="footer-credits">Team BYTE ME HARD © All Rights Reserved 2025</p>
+    </footer>
+
+    <script>
+        function initMap() {
+            const location = { lat: 19.0760, lng: 72.8777 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: location,
+                styles: [
+                    { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
+                    { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
+                    { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+                ]
+            });
+            new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Production',
+                    data: [1200, 1900, 3000, 5000, 2000, 3000],
+                    backgroundColor: '#d8d25c',
+                    borderColor: '#000000',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#333333'
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#333333'
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trends</title>
+  <link rel="stylesheet" href="static/trends.css">
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-container">
+      <div class="logo">Bharat Forge</div>
+      <div class="dropdown">
+        <button class="dropdown-btn">Supplier</button>
+        <button class="dropdown-btn">Customer</button>
+        <div class="submenu">
+          <button>Chat Assistant</button>
+          <button>Profile</button>
+        </div>
+      </div>
+    </div>
+    <nav class="nav">
+        <a href="/trends" class="neo-category">TRENDS</a>
+      <a href="/product" class="neo-category">Products</a>
+      <a href="/raw" class="neo-category">Raw Material</a>
+    </nav>
+  </header>
+
+  <!-- Chart section: City Wise Demand -->
+  <div class="chart-container">
+    <h2 class="chart-title">Demand Chart</h2>
+    <canvas id="demandChart"></canvas>
+  </div>
+  <div class="chart-container">
+    <h2 class="chart-title">City Wise Demand</h2>
+    <div class="bar-chart">
+      <div class="bar" style="height: 80%;" data-label="Bhayandar (4000)"></div>
+      <div class="bar" style="height: 60%;" data-label="Thane (3000)"></div>
+      <div class="bar" style="height: 50%;" data-label="Navi Mumbai (2500)"></div>
+      <div class="bar" style="height: 70%;" data-label="Kalyan (3500)"></div>
+      <div class="bar" style="height: 40%;" data-label="Dombivli (2000)"></div>
+      <div class="bar" style="height: 65%;" data-label="Vasai-Virar (3200)"></div>
+    </div>
+  </div>
+
+  <footer class="footer-panel">
+    <div class="footer-line"></div>
+    <p class="footer-title">Bharat Forge</p>
+    <p class="footer-credits">Team BYTE ME HARD &copy; All Rights Reserved 2025</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      const ctx = document.getElementById('demandChart').getContext('2d');
+      const demandChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Furniture', 'Almirah', 'Table', 'Chair', 'Couch', 'Cabinet'],
+          datasets: [{
+            label: 'Demand by Region',
+            data: [3000, 2000, 1500, 4000, 2500, 1800],
+            backgroundColor: '#C6D200',
+            borderColor: '#A3B000',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              labels: {
+                color: '#D9D9D9',
+                font: {
+                  size: 14
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: '#D9D9D9'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            },
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: '#D9D9D9'
+              },
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              }
+            }
+          }
+        }
+      });
+    };
+  </script>
+
+</body>
+</html> 
